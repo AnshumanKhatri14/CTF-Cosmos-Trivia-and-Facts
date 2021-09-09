@@ -2,7 +2,7 @@ opt3={   1:"Mars"
         ,2:"Venus"
         ,3:"Venus"
         ,4:"Jupiter"
-        ,5:"Jupiter"                             #C
+        ,5:"Jupiter"                            #C
         ,6:"Sputnik 1"
 }
 '''        ,7:""
