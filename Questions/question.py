@@ -4,4 +4,7 @@ ques={   1:"Which is the smallest planet within our solar system?"
         ,4:"Which is the brightest planet in the night’s sky?"
         ,5:"Which planet is larger, Neptune or Saturn?"
         ,6:"Uranus has only been visited by what spacecraft?"
+        ,7:""
+        ,8:""
+        ,9:""
 }
