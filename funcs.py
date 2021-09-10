@@ -88,4 +88,3 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                                 print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
         else:
                 print("Please check your answer.")
-                check_ans(r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Again Checking The Answer
