@@ -56,14 +56,35 @@ def random_ques():
     if inp=="Y" or "YES":
         for ques_no in range(1,6):
             r=random.randint(1,6)
-            print(f"\nQuestion {str(ques_no)}: {ques[r]}\n\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
+            check_opt1=opt1[r]
+            check_opt2=opt2[r]
+            check_opt3=opt3[r]
+            check_opt4=opt4[r]
+            print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
 
             answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")
-            check_ans(answer,r)
+            check_ans(answer,r,ans1=check_opt1,ans2=check_opt2,ans3=check_opt3,ans4=check_opt4)
 
-def check_ans(answer,r):
-        if answer==# here we want the correct option number for the question:
-            print("\nYour answer is correct!\n")
-        else:
-            print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
-            exit()
+def check_ans(answer,r,ans1,ans2,ans3,ans4):
+        if answer=="1":
+                if ans1==ans[r]:
+                        print("\nYour answer is correct!\n")
+                else:
+                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
+        elif answer=="2":
+                if ans2==ans[r]:
+                        print("\nYour answer is correct!\n")
+                else:
+                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
+        elif answer=="3":
+                if ans3==ans[r]:
+                        print("\nYour answer is correct!\n")
+                else:
+                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
+        elif answer=="4":
+                if ans4==ans[r]:
+                        print("\nYour answer is correct!\n")
+                else:
+                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
+
+random_ques()
