@@ -70,22 +70,22 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                         if ans1==ans[r]:
                                 print("\nYour answer is correct!\n")
                         else:
-                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
                 elif answer=="2":       # If Selected 2
                         if ans2==ans[r]:
                                 print("\nYour answer is correct!\n")
                         else:
-                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
                 elif answer=="3":       # If Selected 3
                         if ans3==ans[r]:
                                 print("\nYour answer is correct!\n")
                         else:
-                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
                 elif answer=="4":       # If Selected 4
                         if ans4==ans[r]:
                                 print("\nYour answer is correct!\n")
                         else:
-                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
         else:
                 print("Please check your answer.")
                 check_ans(r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Again Checking The Answer
