@@ -51,40 +51,41 @@ ans={    1:opt1[1]
 
 import random
 
-def random_ques():
-    inp=input("Do you want to take another quiz? (Yes/No): ").upper()
-    if inp=="Y" or "YES":
-        for ques_no in range(1,6):
-            r=random.randint(1,6)
-            check_opt1=opt1[r]
-            check_opt2=opt2[r]
-            check_opt3=opt3[r]
-            check_opt4=opt4[r]
-            print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
+def quiz_again():      # Function To Start Another Quiz
+        inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
+        if inp=="Y" or "YES":
+                for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
+                        r=random.randint(1,6)   # Random Questions From The Dicts (Also, Set The Range)
+                        ans1,ans2,ans3,ans4=opt1[r],opt2[r],opt3[r],opt4[r]     # Assigning Variables To All The Options For Each Iteration
+                        print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n1. {opt1[r]}\
+                                \n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")    # Displaying Question Along With Options
+                        check_ans(r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
+        else:
+                exit()  # FOR NOW Exit
 
-            answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")
-            check_ans(answer,r,ans1=check_opt1,ans2=check_opt2,ans3=check_opt3,ans4=check_opt4)
-
-def check_ans(answer,r,ans1,ans2,ans3,ans4):
-        if answer=="1":
-                if ans1==ans[r]:
-                        print("\nYour answer is correct!\n")
-                else:
-                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
-        elif answer=="2":
-                if ans2==ans[r]:
-                        print("\nYour answer is correct!\n")
-                else:
-                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
-        elif answer=="3":
-                if ans3==ans[r]:
-                        print("\nYour answer is correct!\n")
-                else:
-                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
-        elif answer=="4":
-                if ans4==ans[r]:
-                        print("\nYour answer is correct!\n")
-                else:
-                        print("\nYour answer is incorrect.\n" + "The correct answer to this question is " + ans[r] + ".\n")
-
-random_ques()
+def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The Answer
+        answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")     # Input
+        if answer!=None:        # Checking The Answer
+                if answer=="1":         # If Selected 1
+                        if ans1==ans[r]:
+                                print("\nYour answer is correct!\n")
+                        else:
+                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                elif answer=="2":       # If Selected 2
+                        if ans2==ans[r]:
+                                print("\nYour answer is correct!\n")
+                        else:
+                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                elif answer=="3":       # If Selected 3
+                        if ans3==ans[r]:
+                                print("\nYour answer is correct!\n")
+                        else:
+                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+                elif answer=="4":       # If Selected 4
+                        if ans4==ans[r]:
+                                print("\nYour answer is correct!\n")
+                        else:
+                                print(f"\nYour answer is incorrect.\n\The correct answer to this question is {ans[r]}.\n")
+        else:
+                print("Please check your answer.")
+                check_ans(r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Again Checking The Answer
