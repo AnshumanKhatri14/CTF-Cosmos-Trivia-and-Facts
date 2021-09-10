@@ -70,7 +70,7 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                         print("\nYour answer is correct!\n")
                 elif answer=="2" and ans2==ans[r]:      # If Selected 2
                         print("\nYour answer is correct!\n")
-                elif answer=="3" and ans3==ans[r]:       # If Selected 3
+                elif answer=="3" and ans3==ans[r]:      # If Selected 3
                         print("\nYour answer is correct!\n")
                 elif answer=="4" and ans4==ans[r]:      # If Selected 4
                         print("\nYour answer is correct!\n")
