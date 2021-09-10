@@ -52,13 +52,18 @@ ans={    1:opt1[1]
 import random
 
 def random_ques():
-    inp=input("Do you want to take another quiz? (Yes/No)").upper()
+    inp=input("Do you want to take another quiz? (Yes/No): ").upper()
     if inp=="Y" or "YES":
-        for i in range(1,6):
+        for ques_no in range(1,6):
             r=random.randint(1,6)
-            print(ques[r])
-            user_ans()
+            print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
 
-def user_ans():
-    answer=input("Enter you answer (option 1, 2, 3, or 4): ")
-    if answer==ans[]
+            answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")
+            check_ans(answer,r)
+
+def check_ans(answer,r):
+        if answer==# here we want the correct option number for the question:
+            print("\nYour answer is correct!\n")
+        else:
+            print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
+            exit()
