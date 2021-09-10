@@ -56,7 +56,7 @@ def random_ques():
     if inp=="Y" or "YES":
         for ques_no in range(1,6):
             r=random.randint(1,6)
-            print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
+            print(f"\nQuestion {str(ques_no)}: {ques[r]}\n\n1. {opt1[r]}\n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")
 
             answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")
             check_ans(answer,r)
