@@ -8,10 +8,24 @@ def print_ques():
                 for ques_no in range(6):
                         print(f"Q{int(ques_no)+1}: {ques[ques_no]}")
 
-
-<<<<<<< HEAD
 print_ques()
-=======
+
+opt1={   1:"Mercury"                            #C
+        ,2:"Neptune"
+        ,3:"Saturn"                             #C
+        ,4:"Neptune"
+        ,5:"Uranus"
+        ,6:"Curiosity"
+}
+
+opt2={   1:"Uranus"
+        ,2:"Mercury"
+        ,3:"Jupiter"
+        ,4:"Mercury"
+        ,5:"Saturn"
+        ,6:"The Voyager 2"                      #C
+}
+
 opt3={   1:"Mars"
         ,2:"Venus"
         ,3:"Venus"
@@ -67,4 +81,3 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                 pass
 
 quiz_again()
->>>>>>> da78a11821e893226c69d22cb930152dcc857c18
