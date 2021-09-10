@@ -59,7 +59,7 @@ def quiz_again():      # Function To Start Another Quiz
                         ans1,ans2,ans3,ans4=opt1[r],opt2[r],opt3[r],opt4[r]     # Assigning Variables To All The Options For Each Iteration
                         print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n1. {opt1[r]}\
                                 \n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")    # Displaying Question Along With Options
-                        check_ans(r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
+                        check_ans(answer="",r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
         else:
                 exit()  # FOR NOW Exit
 
@@ -88,3 +88,5 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                                 print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
         else:
                 print("Please check your answer.")
+
+quiz_again()
