@@ -66,27 +66,17 @@ def quiz_again():      # Function To Start Another Quiz
 def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The Answer
         answer=input("\nEnter you answer (option 1, 2, 3, or 4): ")     # Input
         if answer!=None:        # Checking The Answer
-                if answer=="1":         # If Selected 1
-                        if ans1==ans[r]:
-                                print("\nYour answer is correct!\n")
-                        else:
-                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
-                elif answer=="2":       # If Selected 2
-                        if ans2==ans[r]:
-                                print("\nYour answer is correct!\n")
-                        else:
-                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
-                elif answer=="3":       # If Selected 3
-                        if ans3==ans[r]:
-                                print("\nYour answer is correct!\n")
-                        else:
-                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
-                elif answer=="4":       # If Selected 4
-                        if ans4==ans[r]:
-                                print("\nYour answer is correct!\n")
-                        else:
-                                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
+                if answer=="1" and ans1==ans[r]:        # If Selected 1
+                        print("\nYour answer is correct!\n")
+                elif answer=="2" and ans2==ans[r]:      # If Selected 2
+                        print("\nYour answer is correct!\n")
+                elif answer=="3" and ans3==ans[r]:       # If Selected 3
+                        print("\nYour answer is correct!\n")
+                elif answer=="4" and ans4==ans[r]:      # If Selected 4
+                        print("\nYour answer is correct!\n")
+                else:
+                        print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.\n")
         else:
-                print("Please check your answer.")
+                pass
 
 quiz_again()
