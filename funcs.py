@@ -25,7 +25,8 @@ def quiz_again():      # Function To Start Another Quiz
 
 def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The Answer
         answer=int(input("\nEnter you answer (option 1, 2, 3, or 4): "))    # Input
-        if (answer==1 and ans1!=ques[r][5]) or (answer==2 and ans2!=ques[r][5]) or (answer==3 and ans3!=ques[r][5]) or (answer==4 and ans4!=ques[r][5]):       # If Answer Wrong
+        if (answer==1 and ans1!=ques[r][5]) or (answer==2 and ans2!=ques[r][5])\
+                or (answer==3 and ans3!=ques[r][5]) or (answer==4 and ans4!=ques[r][5]):       # If Answer Wrong
                 print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][5]}")
         else:
                 print("\nYour answer is correct!\n")    # If Answer Right
