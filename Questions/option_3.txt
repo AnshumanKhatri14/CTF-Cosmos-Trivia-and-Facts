@@ -2,5 +2,5 @@ Mars
 Venus
 Venus
 Jupiter
- Jupiter
+Jupiter
 Sputnik 1

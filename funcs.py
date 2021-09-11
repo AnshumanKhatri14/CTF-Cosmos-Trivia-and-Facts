@@ -1,53 +1,25 @@
 # this is where all the funcs needed for main.py will be
 
-#These ques ans are here to test the fucntions
-ques={   1:"Which is the smallest planet within our solar system?"
-        ,2:"Which is the second smallest planet within our solar system?"
-        ,3:"The moon called Titan orbits which planet?"
-        ,4:"Which is the brightest planet in the night’s sky?"
-        ,5:"Which is the largest planet within our solar system?"
-        ,6:"Uranus has only been visited by what spacecraft?"
-}
+ques_file=open("Questions\\question.txt")
+opt1_file=open("Questions\\option_1.txt")
+opt2_file=open("Questions\\option_2.txt")
+opt3_file=open("Questions\\option_3.txt")
+opt4_file=open("Questions\\option_4.txt")
+ans_file=open("Questions\\answer.txt")
 
-opt1={   1:"Mercury"                            #C
-        ,2:"Neptune"
-        ,3:"Saturn"                             #C
-        ,4:"Neptune"
-        ,5:"Uranus"
-        ,6:"Curiosity"
-}
+ques=ques_file.readlines()
+opt1=opt1_file.readlines()
+opt2=opt2_file.readlines()
+opt3=opt3_file.readlines()
+opt4=opt4_file.readlines()
+ans=ans_file.readlines()
 
-opt2={   1:"Uranus"
-        ,2:"Mercury"
-        ,3:"Jupiter"
-        ,4:"Mercury"
-        ,5:"Saturn"
-        ,6:"The Voyager 2"                      #C
-}
-
-opt3={   1:"Mars"
-        ,2:"Venus"
-        ,3:"Venus"
-        ,4:"Jupiter"
-        ,5:"Jupiter"                            #C
-        ,6:"Sputnik 1"
-}
-
-opt4={   1:"Venus"
-        ,2:"Mars"                               #C
-        ,3:"Mars"
-        ,4:"Venus"                              #C
-        ,5:"Neptune"
-        ,6:"The Voyager 1"
-}
-
-ans={    1:opt1[1]
-        ,2:opt4[2]
-        ,3:opt1[3]
-        ,4:opt4[4]
-        ,5:opt3[5]
-        ,6:opt2[6]
-}
+ques_file.close()
+opt1_file.close()
+opt2_file.close()
+opt3_file.close()
+opt4_file.close()
+ans_file.close()
 
 import random
 
@@ -55,10 +27,9 @@ def quiz_again():      # Function To Start Another Quiz
         inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
         if inp=="Y" and "YES":
                 for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-                        r=random.randint(1,6)   # Random Questions From The Dicts (Also, Set The Range)
+                        r=random.randint(0,5)   # Random Questions From The Dicts (Also, Set The Range)
                         ans1,ans2,ans3,ans4=opt1[r],opt2[r],opt3[r],opt4[r]     # Assigning Variables To All The Options For Each Iteration
-                        print(f"\nQuestion {str(ques_no)}: {ques[r]}.\n1. {opt1[r]}\
-                                \n2. {opt2[r]}\n3. {opt3[r]}\n4. {opt4[r]}")    # Displaying Question Along With Options
+                        print(f"\nQuestion {str(ques_no)}: {ques[r]} 1. {opt1[r]} 2. {opt2[r]} 3. {opt3[r]} 4. {opt4[r]}")    # Displaying Question Along With Options
                         check_ans(answer="",r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
         elif inp=="N" and "NO":
                 exit()  # FOR NOW Exit
@@ -67,14 +38,10 @@ def quiz_again():      # Function To Start Another Quiz
 
 def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The Answer
         answer=int(input("\nEnter you answer (option 1, 2, 3, or 4): "))    # Input
-        
-        for x in range(1):        # Checking The Answer
-                print("\nYour answer is correct!\n" if answer==1 and ans1==ans[r] else "", end="")      # If Selected 1
-                print("\nYour answer is correct!\n" if answer==2 and ans2==ans[r] else "", end="")      # If Selected 2
-                print("\nYour answer is correct!\n" if answer==3 and ans3==ans[r] else "", end="")      # If Selected 3
-                print("\nYour answer is correct!\n" if answer==4 and ans4==ans[r] else "", end="")      # If Selected 4
-                if (answer==1 and ans1!=ans[r]) or (answer==2 and ans2!=ans[r])\
+        if (answer==1 and ans1!=ans[r]) or (answer==2 and ans2!=ans[r])\
                  or (answer==3 and ans3!=ans[r]) or (answer==4 and ans4!=ans[r]):       # If Answer Wrong
-                        print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.")
+                print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}")
+        else:
+                print("\nYour answer is correct!\n")    # If Answer Right
 
 quiz_again()
