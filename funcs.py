@@ -74,7 +74,7 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
                 print("\nYour answer is correct!\n" if answer==3 and ans3==ans[r] else "", end="")      # If Selected 3
                 print("\nYour answer is correct!\n" if answer==4 and ans4==ans[r] else "", end="")      # If Selected 4
                 if (answer==1 and ans1!=ans[r]) or (answer==2 and ans2!=ans[r])\
-                 or (answer==3 and ans3!=ans[r]) or (answer==4 and ans4!=ans[r]):
-                        print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.") # If Answer Wrong
+                 or (answer==3 and ans3!=ans[r]) or (answer==4 and ans4!=ans[r]):       # If Answer Wrong
+                        print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ans[r]}.")
 
 quiz_again()
