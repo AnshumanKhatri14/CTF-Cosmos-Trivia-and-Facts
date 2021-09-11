@@ -25,13 +25,13 @@ import random
 
 def quiz_again():      # Function To Start Another Quiz
         inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
-        if inp=="Y" and "YES":
+        if inp=="Y" or inp=="YES":
                 for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
                         r=random.randint(0,5)   # Random Questions From The Dicts (Also, Set The Range)
                         ans1,ans2,ans3,ans4=opt1[r],opt2[r],opt3[r],opt4[r]     # Assigning Variables To All The Options For Each Iteration
                         print(f"\nQuestion {str(ques_no)}: {ques[r]} 1. {opt1[r]} 2. {opt2[r]} 3. {opt3[r]} 4. {opt4[r]}")    # Displaying Question Along With Options
                         check_ans(answer="",r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
-        elif inp=="N" and "NO":
+        elif inp=="N" or inp == "NO":
                 exit()  # FOR NOW Exit
         else:
                 exit()  # FOR NOW Exit 
