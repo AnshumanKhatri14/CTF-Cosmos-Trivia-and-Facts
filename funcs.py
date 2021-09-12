@@ -49,13 +49,7 @@ quiz_again()
 =======
 # YUGAM'S FUNCTIONS
 
-def quiz_again():
-    
-    ques_file=open("questions.csv")
-    read_ques_file=csv.reader(ques_file)
-    ques=[]         # 1-Q, 2-O1, 3-O2, 4-O3, 5-O4, 6-A
-    for x in read_ques_file:
-        ques.append(x)      # Function To Start Another Quiz
+def quiz_again():   # Function To Start Another Quiz
     
     inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
     if inp=="Y" or inp=="YES":
