@@ -1,6 +1,6 @@
 # this is where all the funcs needed for main.py will be
 
-talk("hello world")
+
 ques_file=open("Questions\\question.txt")
 opt1_file=open("Questions\\option_1.txt")
 opt2_file=open("Questions\\option_2.txt")
