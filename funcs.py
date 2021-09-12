@@ -9,6 +9,8 @@ ques=[]         # 1-Q, 2-O1, 3-O2, 4-O3, 5-O4, 6-A
 for x in read_ques_file:
     ques.append(x)
 
+# YUGAM'S FUNCTIONS
+
 def quiz_again():      # Function To Start Another Quiz
     inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
     if inp=="Y" or inp=="YES":
@@ -30,6 +32,8 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
         print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
     else:
         print("\nYour answer is correct!")    # If Answer Right
+
+# ANSHUMAN'S FUNCTIONS
 
 def facts():                         #Defining facts function
     inpt=input("Would you like to know a fun fact about Space? (Yes/No): ").lower()       #Asking user would they like to know a space fact
