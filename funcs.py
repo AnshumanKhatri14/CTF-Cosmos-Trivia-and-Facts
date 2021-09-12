@@ -31,22 +31,20 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
     else:
         print("\nYour answer is correct!")    # If Answer Right
 
-quiz_again()
-
-import random
 def facts():                         #Defining facts function
-    inpt=input("Would you like to know a fun fact about Space? (y/n) : ").lower()       #Asking user would they like to know a space fact
-    if inpt=="y":                                                                       #When agreed
+    inpt=input("Would you like to know a fun fact about Space? (Yes/No): ").lower()       #Asking user would they like to know a space fact
+    if inpt=="y" or inpt=="yes":                                                                       #When agreed
         import random 
-        with open("babatunde.txt","r") as f:
-            facts=f.readlines()
+        with open("facts.txt","r") as fact_file:
+            facts=fact_file.readlines()
             print("Your random space fact is : " )
             print(random.choice(facts))
-    elif inpt=="n":                                                                     #When denied
+    elif inpt=="n" or inpt=="no":                                                                     #When denied
         print("Hope you try it later :)")
         exit()
     else:                                                                               #When input invalid
         print("Your input is invalid, try again :)")
         exit()
 
-facts()                                                                                 #Calling function
+quiz_again()
+facts()
