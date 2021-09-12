@@ -13,7 +13,7 @@ def quiz_again():
     inp=input("Do you want to take another quiz? (Yes/No): ").upper()   # Ask If Want To Take One More Quiz Or Not
     if inp=="Y" or inp=="YES":
         for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-            r=random.randint(1,6)   # Random Questions From The Dicts (Also, Set The Range)
+            r=random.randint(1,6)   # Random Questions From The List (Also, Set The Range)
     
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
     
@@ -41,7 +41,7 @@ def check_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The
 def rapid_fire():
     inp=input("Do you want to start a Rapid Fire Questionaire? (Yes/No): ").upper()
     if inp=="Y" or inp=="YES":
-
+        
 
 
 # ANSHUMAN'S FUNCTIONS
@@ -54,7 +54,7 @@ def facts():                         #Defining facts function
             facts=fact_file.readlines()
             
             print("Your random space fact is : ", random.choice(facts))
-                
+
     elif inpt=="n" or inpt=="no":                                                                     #When denied
         print("Hope you try it later :)")
         exit()
