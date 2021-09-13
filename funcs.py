@@ -31,7 +31,7 @@ def quiz():      # Function To Start Another Quiz
         
     inp=input().upper()
     if inp=="Y" or inp=="YES":
-        for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
+        for ques_no in range(5):      # Number Of Questions To Be Asked In Each Quiz
             r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
 
@@ -65,7 +65,7 @@ def rapid_fire():
     talk("Do you want to start a rapid fire questionare?")
     inp=input("Do you want to start a Rapid Fire Questionnaire? (Yes/No): ").upper()
     if inp=="Y" or inp=="YES":
-        for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
+        for ques_no in range(5):      # Number Of Questions To Be Asked In Each Quiz
             r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
     
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
@@ -97,8 +97,8 @@ def facts():                         #Defining facts function
         
         lis = ["Quite Amazing isn't it?","WOW!","Wow that's so cool!","Woah!","Haha nice","I love this one","This is actually crazy!"]
         fact = random.choice(facts)
-        print("Your random space fact is : ", fact)
-        talk(fact)
+        print("Did you know? " + fact + ".")
+        talk("Did you know? " + fact)
         var = random.choice(lis)
         talk(var)
         print(var)
