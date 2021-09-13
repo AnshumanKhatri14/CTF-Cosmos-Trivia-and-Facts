@@ -91,7 +91,7 @@ def check_rapid_ans(answer,r,ans1,ans2,ans3,ans4):
 
 # ANSHUMAN'S FUNCTIONS
 
-def facts():                         #Defining facts function                                                            #When agreed
+def facts():                         #Defining facts function
     with open("facts.txt") as fact_file:
         facts=fact_file.readlines()
         
