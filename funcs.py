@@ -8,13 +8,14 @@ import speech_recognition as sr
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voices', voices[1].id)
-engine. setProperty("rate", 178)
+engine.setProperty("voices", voices[0].id)
+engine.setProperty("rate", 178)
 
 # Files Needed To Be Read
 
 ques_file=open("questions.csv")
 read_ques_file=csv.reader(ques_file)
+global ques
 ques=[]         # 1-Q, 2-O1, 3-O2, 4-O3, 5-O4, 6-A
 for x in read_ques_file:
     ques.append(x)
@@ -31,19 +32,17 @@ def quiz():      # Function To Start Another Quiz
     inp=input().upper()
     if inp=="Y" or inp=="YES":
         for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-            r=random.randint(1,6)   # Random Questions From The List (Also, Set The Range)
+            r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
 
             print(f"\nQuestion {str(ques_no)}: {ques[r][1]}\n 1. {ques[r][2]}\n 2. {ques[r][3]}\n 3. {ques[r][4]}\n 4. {ques[r][5]}")    # Displaying Question Along With Options
             talk(f"\nQuestion {str(ques_no)}: {ques[r][1]}\nThe options are:\n first, {ques[r][2]}\n second, {ques[r][3]}\n third, {ques[r][4]}\n and fourth, {ques[r][5]}")
                         
             check_quiz_ans(answer="",r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
-    
-    elif inp=="N" or inp == "NO":
-        exit()  # FOR NOW Exit
+        home()
     
     else:
-        exit()  # FOR NOW Exit 
+        home()  # FOR NOW Exit 
 
 def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Check The Answer
     print("\nEnter you answer (option 1, 2, 3, or 4) or enter 'stop' to exit the trivia: ")
@@ -64,25 +63,27 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
 
 def rapid_fire():
     talk("Do you want to start a rapid fire questionare?")
-    inp=input("Do you want to start a Rapid Fire Questionaire? (Yes/No): ").upper()
+    inp=input("Do you want to start a Rapid Fire Questionnaire? (Yes/No): ").upper()
     if inp=="Y" or inp=="YES":
         for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-            r=random.randint(1,6)   # Random Questions From The List (Also, Set The Range)
+            r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
     
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
     
-            ques = print(f"\nQuestion {str(ques_no)}: {ques[r][1]}")    # Displaying Question Along With Options
-            talk(ques)
+            quess=f"\nQuestion {str(ques_no)}: {ques[r][1]}"       # Displaying Question Along With Options
+            print(quess)
+            talk(quess)
     
             check_rapid_ans(answer="",r=r,ans1=ans1,ans2=ans2,ans3=ans3,ans4=ans4)  # Calling Function To Check The Answer
     else:
-        home()
+        home()  
 
 def check_rapid_ans(answer,r,ans1,ans2,ans3,ans4):
 
     answer=input("Answer: ").upper()
     if answer!=(ques[r][6]).upper():
-        result = print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.") # If Answer Wrong
+        result = f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}." # If Answer Wrong
+        print(result)
         talk(result)
     else:
         print("\nYour answer is correct!")    # If Answer Right
