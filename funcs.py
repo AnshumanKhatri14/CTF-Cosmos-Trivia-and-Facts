@@ -61,6 +61,8 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
         print("\nYour answer is correct!")    # If Answer Right
         talk("Your answer is CORRECT!")
 
+    again=input("Do you want to start another quiz?")
+    
 def rapid_fire():
     talk("Do you want to start a rapid fire questionare?")
     inp=input("Do you want to start a Rapid Fire Questionnaire? (Yes/No): ").upper()
