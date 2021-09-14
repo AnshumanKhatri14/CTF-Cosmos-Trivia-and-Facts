@@ -155,7 +155,6 @@ def pl_fax():                         #Defining func
         print("Your input is invalid, try again :)")
         exit()
    
-
 def home():
     print("\n Welcome to the home page! Choose a game mode to start with!")
     talk("Welcome to the home page! Choose a game mode to start with!")
