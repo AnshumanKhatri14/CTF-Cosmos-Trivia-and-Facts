@@ -143,10 +143,12 @@ dct1={'1':'Mercury : Mercury is the smallest and nearest planet to the sun',    
 
 def pl_fax():                         #Defining func
     inpt=input("Would you like to know detailed info about specific planets? (y/n) : ").lower()               #Asking user would they like to know facts about a specific planet
-    if inpt=="y":                                                                                             
+    if inpt=="y":
+
         print("--Our solar system's planet's list is below (from closest to farthest from the Sun)--\n1. Mercury\n2. Venus\n3. Earth\n4. Mars\n5. Jupiter\n6. Saturn\n7. Uranus\n8. Neptune")
         inx=input("Select the corresponding serial no. of which planet's info you would you like to know : ")  #asking user to select a planet
-        print(dct1[inx]) 
+        print(dct1[inx])
+         
     elif inpt=="n":
         print("Hope you try it later :)")                             
         exit()
