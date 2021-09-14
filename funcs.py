@@ -15,7 +15,6 @@ engine.setProperty("rate", 178)
 
 ques_file=open("questions.csv")
 read_ques_file=csv.reader(ques_file)
-global ques
 ques=[]         # 1-Q, 2-O1, 3-O2, 4-O3, 5-O4, 6-A
 for x in read_ques_file:
     ques.append(x)
@@ -46,8 +45,8 @@ def quiz():      # Function To Start Another Quiz
             looplist.insert(0, ques.pop(r))
 
         if len(ques)==1:
-            for i in looplist:
-                ques.insert(0, looplist.pop(i-1))
+            for i in range(len(looplist)):
+                ques.insert(1, looplist.pop(i))
         else:
             pass
 
