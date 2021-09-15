@@ -68,7 +68,7 @@ def quiz():      # Function To Start Another Quiz
 
     if inp=="Y" or inp=="YES":
         for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-            r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
+            r=random.randint(1,(len(ques)-1))   # Random Questions From The List (Also, Set The Range)
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
 
             print(f"\nQuestion {str(ques_no)}: {ques[r][1]}\n 1. {ques[r][2]}\n 2. {ques[r][3]}\n 3. {ques[r][4]}\n 4. {ques[r][5]}")    # Displaying Question Along With Options
@@ -109,30 +109,49 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
         talk("Enter the correct option number ")
     else:
         pass
-    
-    if stt.lower() == "yes":
-        answer = listen()
-    else:
-        answer=input()    # Input
 
-    if (answer=="1" and ans1!=ques[r][6]) or (answer=="2" and ans2!=ques[r][6])\
+    if stt.lower()=="yes":
+        answer=str(listen().lower())
+    else:
+        answer=input()
+
+    try:
+        if ((answer=="1" or answer==str(ques[r][6]).lower()) and ans1!=ques[r][6]) or ((answer=="2" or answer==str(ques[r][6]).lower()) and ans2!=ques[r][6])\
+        or ((answer=="3" or answer==str(ques[r][6]).lower()) and ans3!=ques[r][6]) or ((answer=="4" or answer==str(ques[r][6]).lower()) and ans4!=ques[r][6]):       # If Answer Wrong
+            print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
+            if tts.lower == "yes":
+                talk(f"\nYour answer is incorrect.\nThe correct answer to this question is; {ques[r][6]}.")
+            else:
+                pass
+
+        elif answer.lower() == "stop":
+            home()
+
+        else:
+            print("\nYour answer is correct!")    # If Answer Right
+            if tts.lower == "yes":
+                talk("Your answer is CORRECT!")
+            else:
+                pass
+        
+    except:
+        if (answer=="1" and ans1!=ques[r][6]) or (answer=="2" and ans2!=ques[r][6])\
         or (answer=="3" and ans3!=ques[r][6]) or (answer=="4" and ans4!=ques[r][6] or answer==" "):       # If Answer Wrong
-        print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
-        if tts.lower == "yes":
-            talk(f"\nYour answer is incorrect.\nThe correct answer to this question is; {ques[r][6]}.")
-        else:
-            pass
+            print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
+            if tts.lower == "yes":
+                talk(f"\nYour answer is incorrect.\nThe correct answer to this question is; {ques[r][6]}.")
+            else:
+                pass
     
-    elif answer.lower() == "stop":
-        home()
+        elif answer.lower() == "stop":
+            home()
 
-    else:
-        print(f"the actual value of answer is {answer} yes this")
-        print("\nYour answer is correct!")    # If Answer Right
-        if tts.lower == "yes":
-            talk("Your answer is CORRECT!")
         else:
-            pass
+            print("\nYour answer is correct!")    # If Answer Right
+            if tts.lower == "yes":
+                talk("Your answer is CORRECT!")
+            else:
+                pass
     
 def rapid_fire():
     if tts.lower == "yes":
@@ -148,7 +167,7 @@ def rapid_fire():
 
     if inp=="Y" or inp=="YES":
         for ques_no in range(1,6):      # Number Of Questions To Be Asked In Each Quiz
-            r=random.randint(1,20)   # Random Questions From The List (Also, Set The Range)
+            r=random.randint(1,(len(ques)-1))   # Random Questions From The List (Also, Set The Range)
     
             ans1,ans2,ans3,ans4=ques[r][2],ques[r][3],ques[r][4],ques[r][5]     # Assigning Variables To All The Options
     
@@ -163,7 +182,7 @@ def rapid_fire():
     else:
         home()  
 
-def check_rapid_ans(answer,r,ans1,ans2,ans3,ans4):
+def check_rapid_ans(answer,r):
     if stt.lower == "yes":
         print("Answer: ")
         answer = listen().upper()
@@ -171,7 +190,7 @@ def check_rapid_ans(answer,r,ans1,ans2,ans3,ans4):
         answer = input("Answer: ").upper()
 
 
-    if answer!=(ques[r][6]).upper():
+    if answer!=str(ques[r][6]).upper():
         result = f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}." # If Answer Wrong
         print(result)
         if tts.lower == "yes":
@@ -274,6 +293,5 @@ def home():
         else:
             pass
         exit()
-
 
 home()
