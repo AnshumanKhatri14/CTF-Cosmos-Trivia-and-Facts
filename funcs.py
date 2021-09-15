@@ -16,7 +16,6 @@ engine.setProperty("rate", 178)
 
 ques_file=open("questions.csv")
 read_ques_file=csv.reader(ques_file)
-global ques
 ques=[]         # 1-Q, 2-O1, 3-O2, 4-O3, 5-O4, 6-A
 for x in read_ques_file:
     ques.append(x)
@@ -78,8 +77,8 @@ def quiz():      # Function To Start Another Quiz
             looplist.insert(0, ques.pop(r))
 
         if len(ques)==1:
-            for i in looplist:
-                ques.insert(0, looplist.pop(i-1))
+            for i in range(len(looplist)):
+                ques.insert(1, looplist.pop(i))
         else:
             pass
         
@@ -212,8 +211,31 @@ def space_facts():
             facts()
         else:
             home()
-    
 
+dct1={'1':'Mercury : Mercury is the smallest and nearest planet to the sun',    #making dict for planet's data
+'2':'Venus : Venus is the second closest planet to the sun',
+'3':'Earth : Earth is the only habitable planet in our solar system',
+'4':'Mars : Mars is the fourth closest planet to the sun',
+'5':'Jupiter : Jupiter  is the fifth closest planet to the sun ',
+'6':'Saturn : Saturn  is the sixth closest planet to the sun',
+'7':'Uranus : Uranus is the seventh closest planet to the sun',
+'8':'Neptune : Neptune  is the eighth closest planet to the sun'}
+
+def pl_fax():                         #Defining func
+    inpt=input("Would you like to know detailed info about specific planets? (y/n) : ").lower()               #Asking user would they like to know facts about a specific planet
+    if inpt=="y":
+
+        print("--Our solar system's planet's list is below (from closest to farthest from the Sun)--\n1. Mercury\n2. Venus\n3. Earth\n4. Mars\n5. Jupiter\n6. Saturn\n7. Uranus\n8. Neptune")
+        inx=input("Select the corresponding serial no. of which planet's info you would you like to know : ")  #asking user to select a planet
+        print(dct1[inx])
+         
+    elif inpt=="n":
+        print("Hope you try it later :)")                             
+        exit()
+    else:                                                                                                      #if input invalid
+        print("Your input is invalid, try again :)")
+        exit()
+   
 def home():
     print("\n Welcome to the home page! Choose a game mode to start with!")
     if tts.lower == "yes":
