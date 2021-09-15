@@ -5,7 +5,6 @@ from os import extsep
 import random
 import pyttsx3
 import speech_recognition as sr
-from main import tts,stt
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -21,6 +20,13 @@ for x in read_ques_file:
     ques.append(x)
 
 looplist=[]
+
+print("\n\nCOSMOS TRIVIA AND FACTS") #intro
+print("\n WELCOME TO CTF! CHOOSE THE SETTINGS BEFORE YOU START PLAYING THE GAME!")
+
+# taking input to check if the user wants additional functionalities or not
+tts = input("\n\n Do you want to use text-to-speech to read questions? (yes/no): ")
+stt = input("\n\n Do you want to use microphone to answer questions? (yes/no): ")
 
 def talk(audio):  #tts func to make our program say something
     engine.say(audio)
@@ -56,7 +62,7 @@ def quiz():      # Function To Start Another Quiz
         pass
         
     if stt.lower() == "yes":
-        inp = listen.upper()
+        inp = listen().upper()
     else:
         inp=input().upper()
 
@@ -110,7 +116,7 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
         answer=input()    # Input
 
     if (answer=="1" and ans1!=ques[r][6]) or (answer=="2" and ans2!=ques[r][6])\
-        or (answer=="3" and ans3!=ques[r][6]) or (answer=="4" and ans4!=ques[r][6]):       # If Answer Wrong
+        or (answer=="3" and ans3!=ques[r][6]) or (answer=="4" and ans4!=ques[r][6] or answer==" "):       # If Answer Wrong
         print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
         if tts.lower == "yes":
             talk(f"\nYour answer is incorrect.\nThe correct answer to this question is; {ques[r][6]}.")
@@ -121,6 +127,7 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
         home()
 
     else:
+        print(f"the actual value of answer is {answer} yes this")
         print("\nYour answer is correct!")    # If Answer Right
         if tts.lower == "yes":
             talk("Your answer is CORRECT!")
@@ -263,6 +270,10 @@ def home():
         print("Please enter a valid game mode!")
         if tts.lower == "yes":
             talk("Please enter a valid game mode!")
+            
         else:
             pass
         exit()
+
+
+home()
