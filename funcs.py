@@ -117,7 +117,7 @@ def check_quiz_ans(answer,r,ans1,ans2,ans3,ans4):    # Function To Take And Chec
 
     try:
         if ((answer=="1" or answer==str(ques[r][6]).lower()) and ans1!=ques[r][6]) or ((answer=="2" or answer==str(ques[r][6]).lower()) and ans2!=ques[r][6])\
-        or ((answer=="3" or answer==str(ques[r][6]).lower()) and ans3!=ques[r][6]) or ((answer=="4" or answer==str(ques[r][6]).lower()) and ans4!=ques[r][6]):       # If Answer Wrong
+        or ((answer=="3" or answer==str(ques[r][6]).lower()) and ans3!=ques[r][6]) or ((answer=="4" or answer==str(ques[r][6]).lower()) and ans4!=ques[r][6]) or answer==" ":       # If Answer Wrong
             print(f"\nYour answer is incorrect.\nThe correct answer to this question is {ques[r][6]}.")
             if tts.lower == "yes":
                 talk(f"\nYour answer is incorrect.\nThe correct answer to this question is; {ques[r][6]}.")
